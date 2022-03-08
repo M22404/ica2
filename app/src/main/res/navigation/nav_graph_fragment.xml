@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/MainFragment">
+
+    <fragment
+            android:id="@+id/MainFragment"
+            android:name="com.example.ica2.MainFragment"
+            android:label="@string/app_name"
+            tools:layout="@layout/fragment_main">
+
+        <action
+                android:id="@+id/action_Main_to_Booking"
+                app:destination="@id/BookingFragment"
+                app:enterAnim="@anim/slide_in_left"
+                app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+            android:id="@+id/BookingFragment"
+            android:name="com.example.ica2.BookingFragment"
+            android:label="@string/app_name"
+            tools:layout="@layout/fragment_booking">
+
+        <action
+                android:id="@+id/action_Booking_to_Main"
+                app:destination="@id/MainFragment"
+                app:popUpTo="@id/MainFragment" />
+        <argument
+                android:name="listViewPosition"
+                app:argType="integer"
+                android:defaultValue="0" />
+    </fragment>
+</navigation>
