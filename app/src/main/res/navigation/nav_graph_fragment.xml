@@ -26,7 +26,9 @@
         <action
                 android:id="@+id/action_Booking_to_Main"
                 app:destination="@id/MainFragment"
-                app:popUpTo="@id/MainFragment" />
+                app:popUpTo="@id/MainFragment"
+                app:enterAnim="@anim/slide_in_left"
+                app:exitAnim="@anim/slide_out_left" />
         <argument
                 android:name="listViewPosition"
                 app:argType="integer"
