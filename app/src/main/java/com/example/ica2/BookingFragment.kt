@@ -18,8 +18,8 @@ class BookingFragment : Fragment() {
     private var _binding: FragmentBookingBinding? = null
     private val binding get() = _binding!!
 
-    val CHANNEL_ID = "com.example.ica2"
-    var currId = 1007
+    private val channelId = "com.example.ica2"
+    private var currId = 1007
 
     private val viewModel: AppViewModel by viewModels()
 
@@ -62,7 +62,7 @@ class BookingFragment : Fragment() {
         val name = getString(R.string.channel_name)
         val descriptionText = getString(R.string.channel_description)
         val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+        val channel = NotificationChannel(channelId, name, importance).apply {
             description = descriptionText
         }
         // Register the channel with the system
@@ -74,7 +74,7 @@ class BookingFragment : Fragment() {
 
     private fun sendNotification(summary: String, message: String, group: String?, isSummary: Boolean?) {
         createNotificationChannel()
-        var builder = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+        var builder = NotificationCompat.Builder(requireContext(), channelId)
             .setSmallIcon(R.drawable.ic_baseline_event_available_24)
             .setContentTitle(summary)
             .setContentText(message)
