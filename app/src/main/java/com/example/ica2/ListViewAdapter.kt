@@ -12,7 +12,6 @@ class ListViewAdapter(context: Context, resource: Int, items: List<Location>) :
     private var resourceLayout = resource;
     private var mContext = context;
 
-    @Override
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val v = if (convertView == null) {
             val inflater = LayoutInflater.from(mContext);
