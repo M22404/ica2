@@ -29,10 +29,10 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val listView = binding.listView
-        listView.adapter = ArrayAdapter(
+        listView.adapter = ListViewAdapter(
             requireContext(),
-            com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
-            viewModel.locations.value!!.map { it.description }
+            R.layout.listview_layout,
+            viewModel.locations.value!!
         )
 
         listView.setOnItemClickListener { _, _, pos, _ ->
